@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Box, Container, Grid, Paper } from '@material-ui/core';
 import { SELECT_STEP, PROCESSING_STEP, RESULT_STEP } from "./shared/steps";
 import { SelectStep } from "./Containers/SelectStep";
+import { ProcessingStep } from "./Containers/ProcessingStep";
 
 function App() {
   const [ step, setStep ] = useState(SELECT_STEP);
@@ -13,12 +14,18 @@ function App() {
     switch (step) {
         case SELECT_STEP: return (
             <SelectStep
-                userId={userId}
-                setUserId={setUserId}
+                onSearchClick={() => setStep(PROCESSING_STEP)}
+                userId={userId} setUserId={setUserId}
                 findingUserId={findingUserId}
                 setFindingUserId={setFindingUserId}
             />
         );
+		case PROCESSING_STEP: return (
+            <ProcessingStep
+                userId={userId}
+                setUserId={setUserId}
+            />
+		);
     }
   };
 

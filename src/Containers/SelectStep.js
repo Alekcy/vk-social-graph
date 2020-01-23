@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Grid, Paper, Button, TextField } from '@material-ui/core';
 
-export const SelectStep = ({ userId, setUserId, setFindingUserId, findingUserId }) => {
+export const SelectStep = ({ userId, setUserId, setFindingUserId, findingUserId, onSearchClick }) => {
 	const changeUserId = e => setUserId(e.target.value);
 	const changeFindingUserId = e => setFindingUserId(e.target.value);
 
@@ -29,6 +29,7 @@ export const SelectStep = ({ userId, setUserId, setFindingUserId, findingUserId 
 					variant="contained"
 					color="primary"
 					fullWidth
+					onClick={onSearchClick}
 				>
 					Search
 				</Button>

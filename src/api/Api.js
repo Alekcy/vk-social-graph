@@ -7,7 +7,7 @@ class Api {
 
 	static async search() {
 		return await axios({
-			url: `${apiUrl}/users.get?user_ids=aleksey_vol&fields=bdate&access_token=&v=5.103`,
+			url: `${apiUrl}/users.get?user_ids=aleksey_vol&fields=bdate&access_token=${process.env.REACT_APP_ACCESS_TOKEN}&v=5.103`,
 			adapter: jsonpAdapter,
 		})
 	};

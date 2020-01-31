@@ -2,10 +2,16 @@ import * as React from 'react';
 import { useEffect } from 'react';
 import { Grid, Paper, Button, TextField } from '@material-ui/core';
 import Api from '../api/Api';
+import { getUserNameFromLink } from "../shared/getUserNameFromLink";
 
-export const ProcessingStep = ({ userId, findingUserId }) => {
+export const ProcessingStep = ({ userLink, findingUserLink }) => {
 	useEffect(() => {
-		Api.search().then(res => console.log(res));
+		let userName = getUserNameFromLink(userLink);
+		let findingUserName = getUserNameFromLink(findingUserLink);
+		Api.searchIdsByNames(userName, findingUserName).then(ids => {
+			console.log(ids);
+		});
+		//Api.search().then(res => console.log(res));
 	}, []);
 
 	return (

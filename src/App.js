@@ -7,23 +7,23 @@ import { ProcessingStep } from "./Containers/ProcessingStep";
 
 function App() {
   const [ step, setStep ] = useState(SELECT_STEP);
-  const [ userId, setUserId ] = useState('');
-  const [ findingUserId, setFindingUserId ] = useState('');
+  const [ userLink, setUserLink ] = useState('');
+  const [ findingUserLink, setFindingUserLink ] = useState('');
 
   const renderStep = () => {
     switch (step) {
         case SELECT_STEP: return (
             <SelectStep
                 onSearchClick={() => setStep(PROCESSING_STEP)}
-                userId={userId} setUserId={setUserId}
-                findingUserId={findingUserId}
-                setFindingUserId={setFindingUserId}
+                userLink={userLink} setUserLink={setUserLink}
+                findingUserLink={findingUserLink}
+                setFindingUserLink={setFindingUserLink}
             />
         );
 		case PROCESSING_STEP: return (
             <ProcessingStep
-                userId={userId}
-                setUserId={setUserId}
+                userLink={userLink}
+                findingUserLink={findingUserLink}
             />
 		);
     }
